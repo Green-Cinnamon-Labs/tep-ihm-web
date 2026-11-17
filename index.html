@@ -1,34 +1,13 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <title>TEP IHM</title>
-</head>
-<body>
-  <div id="root"></div>
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
-  <script>
-    const e = React.createElement;
-
-    function Health() {
-      const [status, setStatus] = React.useState('carregando...');
-      React.useEffect(() => {
-        fetch('http://localhost:3000/healthz')
-          .then((r) => r.json())
-          .then((body) => setStatus(JSON.stringify(body)))
-          .catch((err) => setStatus('erro: ' + err.message));
-      }, []);
-      return e('p', null, 'api: ', status);
-    }
-
-    function App() {
-      return e('main', null,
-        e('h1', null, 'TEP IHM'),
-        e(Health));
-    }
-
-    ReactDOM.createRoot(document.getElementById('root')).render(e(App));
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEP IHM</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
