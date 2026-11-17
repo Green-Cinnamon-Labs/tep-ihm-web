@@ -4,7 +4,7 @@ export default function Health() {
     const [status, setStatus] = useState('carregando...');
 
     useEffect(() => {
-        fetch('http://localhost:3000/healthz')
+        fetch('/api/healthz')
             .then((r) => r.json())
             .then((body: unknown) => setStatus(JSON.stringify(body)))
             .catch((err: Error) => setStatus(`erro: ${err.message}`));

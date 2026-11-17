@@ -14,4 +14,5 @@ it('shows the body of /healthz', async () => {
 
     expect(screen.getByText(/carregando/)).toBeInTheDocument();
     expect(await screen.findByText(/"status":"ok"/)).toBeInTheDocument();
+    expect(fetch).toHaveBeenCalledWith('/api/healthz')
 });
